@@ -61,7 +61,7 @@ namespace DrawingStarMethod
             // base star is 207 pixels wide.  A scale is created based on this value to determine how long
             // to draw each side so that it will end up being the number of pixels wide that the user desires.
             float scale = pixels / 207;
-
+            /*
             g.DrawLine(starPen, 80 * scale + x, 77 * scale + y, 103 * scale + x, 4 * scale + y);
             g.DrawLine(starPen, 103 * scale + x, 4 * scale + y, 126 * scale + x, 78 * scale + y);
             g.DrawLine(starPen, 126 * scale + x, 78 * scale + y, 207 * scale + x, 78 * scale + y);
@@ -72,8 +72,23 @@ namespace DrawingStarMethod
             g.DrawLine(starPen, 40 * scale + x, 196 * scale + y, 63 * scale + x, 123 * scale + y);
             g.DrawLine(starPen, 63 * scale + x, 123 * scale + y, 0 * scale + x, 77 * scale + y);
             g.DrawLine(starPen, 0 * scale + x, 77 * scale + y, 80 * scale + x, 77 * scale + y);
+            */
 
             //TODO: put the above points into a PointF array and use DrawPolygon to draw your star
+            PointF point1 = new PointF(80 * scale + x, 77 * scale + y);
+            PointF point2 = new PointF(103 * scale + x, 4 * scale + x);
+            PointF point3 = new PointF(126 * scale + x, 78 * scale + x);
+            PointF point4 = new PointF(207 * scale + x, 78 * scale + x);
+            PointF point5 = new PointF(143 * scale + x, 125 * scale + x);
+            PointF point6 = new PointF(167 * scale + x, 197 * scale + x);
+            PointF point7 = new PointF(103 * scale + x, 153 * scale + x);
+            PointF point8 = new PointF(40 * scale + x, 196 * scale + x);
+            PointF point9 = new PointF(63 * scale + x, 124 * scale + x);
+            PointF point10 = new PointF(0 * scale + x, 77 * scale + x);
+
+            PointF[] starboi = { point1, point2, point3, point4, point5, point6, point7, point8, point9, point10 };
+
+            g.DrawPolygon(starPen, starboi);
         }
 
         /// Gathers information from the input boxes and then sends values
@@ -111,7 +126,27 @@ namespace DrawingStarMethod
         /// <param name="pixels">Side lengths of the square within which the star is drawn</param>
         public void FillStar(SolidBrush drawBrush, float x, float y, float pixels)
         {
+            Graphics g = this.CreateGraphics();
+            // base star is 207 pixels wide.  A scale is created based on this value to determine how long
+            // to draw each side so that it will end up being the number of pixels wide that the user desires.
+            float scale = pixels / 207;
+
             //TODO: create FillStar code here similar to DrawStar code but using FillPolygon instead
+            PointF point1 = new PointF(80 * scale + x, 77 * scale + y);
+            PointF point2 = new PointF(103 * scale + x, 4 * scale + x);
+            PointF point3 = new PointF(126 * scale + x, 78 * scale + x);
+            PointF point4 = new PointF(207 * scale + x, 78 * scale + x);
+            PointF point5 = new PointF(143 * scale + x, 125 * scale + x);
+            PointF point6 = new PointF(167 * scale + x, 197 * scale + x);
+            PointF point7 = new PointF(103 * scale + x, 153 * scale + x);
+            PointF point8 = new PointF(40 * scale + x, 196 * scale + x);
+            PointF point9 = new PointF(63 * scale + x, 124 * scale + x);
+            PointF point10 = new PointF(0 * scale + x, 77 * scale + x);
+
+            PointF[] starboi = { point1, point2, point3, point4, point5, point6, point7, point8, point9, point10 };
+
+            g.FillPolygon(drawBrush, starboi);
+
         }
     }
 }
